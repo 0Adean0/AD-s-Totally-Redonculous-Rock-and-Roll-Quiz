@@ -1,13 +1,14 @@
 var quizBButton = document.querySelector("#begin-quiz")
 var gameClock = document.querySelector("#game-time")
 var initText = document.querySelector ("#init-text")
-var remainingTime = 45
+var remainingTime = 120
 var questionHousing = document.querySelector("#q-housing")
 var answerHousing = document.querySelector("#a-housing")
 var a1 = document.querySelector("#A1")
 var a2 = document.querySelector("#A2")
 var a3 = document.querySelector("#A3")
 var a4 = document.querySelector("#A4")
+var a5 = document.querySelector("#A5")
 var subjectHead = document.querySelector("#subject-header")
 var gamerInit = document.querySelector("#gamer-init")
 var recordKeeping = document.querySelector("#record-keeper")

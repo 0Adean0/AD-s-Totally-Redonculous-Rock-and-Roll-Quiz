@@ -36,8 +36,25 @@ button{
     border-radius: 25px;
     display:flex;
     font-size: 22px;
-    line-height: 22px;
     text-align: center;
     cursor:pointer;
     justify-content:center;
+}
+
+#a-housing{
+    display:none;
+    flex-flow: column nowrap;
+    margin: 30px;
+    justify-items: center;
+    text-align: center;
+    width: 80%;
+
+}
+
+#q-housing{
+    display:none;
+    font-size: 200px;
+}
+#gamer-init{
+    display:none;
 }
