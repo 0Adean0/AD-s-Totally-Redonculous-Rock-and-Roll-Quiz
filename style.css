@@ -2,3 +2,42 @@
    font-family:monospace;
    color:black
 }
+
+header{
+    display:flex;
+    padding-top: 2px;
+}
+
+h1{
+
+    font-size: 200%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+
+}
+
+p{
+    border:10px, bold, black;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-top:10px;
+    background-color: rgb(250, 224, 140);
+    border-radius: 20px;
+  
+
+}
+
+button{
+    border:bold black;
+    background-color: hsl(0, 63%, 52%);
+    color: aliceblue;
+    border-radius: 25px;
+    display:flex;
+    font-size: 22px;
+    line-height: 22px;
+    text-align: center;
+    cursor:pointer;
+    justify-content:center;
+}
