@@ -1,23 +1,24 @@
-var quizBButton = document.querySelector("#begin-quiz")
-var gameClock = document.querySelector("#game-time")
-var initText = document.querySelector ("#init-text")
-var remainingTime = 120
-var questionHousing = document.querySelector("#q-housing")
-var answerHousing = document.querySelector("#a-housing")
-var a1 = document.querySelector("#A1")
-var a2 = document.querySelector("#A2")
-var a3 = document.querySelector("#A3")
-var a4 = document.querySelector("#A4")
-var a5 = document.querySelector("#A5")
-var subjectHead = document.querySelector("#subject-header")
-var gamerInit = document.querySelector("#gamer-init")
-var recordKeeping = document.querySelector("#record-keeper")
-var gamerTag = document.querySelector("gamer-tag")
+var quizBButton = document.querySelector("#begin-quiz");
+var gameClock = document.querySelector("#game-time");
+var initText = document.querySelector ("#init-text");
+var remainingTime = 120;
+var questionHousing = document.querySelector("#q-housing");
+var answerHousing = document.querySelector("#a-housing");
+var a1 = document.querySelector("#A1");
+var a2 = document.querySelector("#A2");
+var a3 = document.querySelector("#A3");
+var a4 = document.querySelector("#A4");
+var subjectHead = document.querySelector("#subject-header");
+var gamerInit = document.querySelector("#gamer-init");
+var recordKeeping = document.querySelector("#record-keeper");
+var gamerTag = document.querySelector("#tag");
+
+console.log(localStorage.getItem("tag"));
 
 // inital game questions and storage in objects. includes array with listed properties
 var qcount = 0
 
-var qs = [ { 
+var qss = [ { 
 
     qtext: "Question 1: Which rock and roll fontperson had a dove land on their hand during a live performace at Kazar Stadium in San Fransisco, circa 1973? ",
     options: ["Frank Zappa","Jimmy Hendrix","Robert Plant","Anne Wilson"],
@@ -44,8 +45,73 @@ var qs = [ {
 function StartTRRQ(){
 quizBButton.style.display = "none"
 initText.style.display = "none"
-qspacing.style.display="block"
+optionsSpacing.style.display ="flex"
+qSpacing.style.display="block"
 console.log ("Enter the Gates!");
-setTime()
-qDisplay();
+setClock()
+qsDisplay();
 }
+
+function setClock(){
+var clockInt=setInt(function(){
+    remainingTime --,
+    clockInt.qcontent= remainingTime + "remaining time";
+
+    if(qsNumber>(qs.length -1)){
+        clearInt(clockInt);
+        gameOver();
+        return null;
+    }
+    if(remainingTime<=0){
+        clearInt(clockInt);
+        alert("You are unworthy!")
+        gameOver()
+    } 
+    })
+}
+    function nextQuestion(){
+        qsNumber++;
+        qsDisplay();
+    }
+
+    function qsDisplay(){
+    qSpacing.textContent = qss[qsNumber].qtext
+    a1.textContent = qss[qsNumber].options[0]
+    a2.textContent = qss[qsNumber].options[1]
+    a3.textContent = qss[qsNumber].options[2]
+    a4.textContent = qss[qsNumber].options[3]
+    console.log(qsNumber)
+    }
+
+    function gameOver(){
+    localStorage.setItem("godliness",remainingTime);
+    document.querySelector("#gameClock").innerHTML = "No Time Remaining";
+    initText.style.display = "block";
+    initText.textContent= "your Godliness is... " + localStorage.getItem("godliness",remainingTime);
+    subjectHead.textContent="Welcome to the Hall of Rock Gods!";
+    optionsSpacing.style.display = "none";
+    gamerInit.style.display = "block";
+}
+
+quizBButton.addEventListener("click",function(event){
+    event.preventDefault();
+    StartTRRQ();
+})
+
+answerHousing.addEventListener("click",function(event){
+    var el = event.target;
+    if(el.pairs(".a")){
+    if(el.innerHTML!==qss[qsNumber].correctAns){
+    }
+        remainingTime=(remainingTime-10)
+    }
+
+    nextQuestion();
+
+  })
+
+  saveinitialsBtn.addEventListener("click",function(event){
+
+    event.preventDefault;
+    localStorage.setItem("gamer-tag",gamerTag.value)
+  })
