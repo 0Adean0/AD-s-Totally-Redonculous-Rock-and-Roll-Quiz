@@ -11,7 +11,7 @@ N/A
 
 To navigate the quiz, the user can click on the "enter the gates" button to navigate to the questions and thier potential answers. When all questions have been entered the user can input thier innitials and look at past high scores.
 
-![screenshot of quiz](./images/_C__Users_Adavi_bootcamp_Random-Password-Generator_index.html%20(3).png
+![screenshot of quiz](./images/_C__Users_Adavi_bootcamp_AD-s-Totally-Redonculous-Rock-and-Roll-Quiz_index.html.png).png
 
 ## Credits
 http://2.bp.blogspot.com/-ftFwEk9eA9s/VKG-yEOhWSI/AAAAAAAAGlA/cyXjuIF8CXQ/s1600/The%2BHellacopters%2B-%2BRock%2B%26%2BRoll%2BIs%2BDead.jpg
