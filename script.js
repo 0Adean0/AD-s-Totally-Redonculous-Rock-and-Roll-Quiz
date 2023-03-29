@@ -13,7 +13,6 @@ var gamerInit = document.querySelector("#gamer-init");
 var recordKeeping = document.querySelector("#record-keeper");
 var gamerTag = document.querySelector("#tag");
 
-// inital game questions and storage in objects. includes array with listed properties
 var qcount = 0
 
 var qss = [ { 
@@ -103,9 +102,6 @@ answerHousing.addEventListener("click",function(event){
     }
         remainingTime=(remainingTime-10)
     }
-
-    nextQuestion();
-
   })
 
   saveinitialsBtn.addEventListener("click",function(event){
