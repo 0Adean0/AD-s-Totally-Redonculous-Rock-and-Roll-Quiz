@@ -13,8 +13,6 @@ var gamerInit = document.querySelector("#gamer-init");
 var recordKeeping = document.querySelector("#record-keeper");
 var gamerTag = document.querySelector("#tag");
 
-console.log(localStorage.getItem("tag"));
-
 // inital game questions and storage in objects. includes array with listed properties
 var qcount = 0
 
