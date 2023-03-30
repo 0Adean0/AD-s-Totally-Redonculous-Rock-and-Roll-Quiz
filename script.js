@@ -13,13 +13,12 @@ var wrRt = document.querySelector("#wrong-right")
 var subjectHead = document.querySelector("#subject-header")
 var gamerInits = document.querySelector("#gamer-init")
 var recordKeeping = document.querySelector("#record-keeper")
-var rockLegend = document.querySelector("#winner")
 var rockLegends = document.querySelector("#previous-winners")
 var rockLegendsScore= document.querySelector("#scores")
 var finalMs = document.querySelector("#final-message")
 var newQuiz = document.querySelector("#new-game")
 
-
+gameClock.textContent = remainingTime
 
 var rockTrivia= [ { 
 
@@ -49,37 +48,36 @@ var rockTrivia= [ {
     correctAns: "Plumbers Apprentice",
 }]
 
-function StartTrial(){
+function rockTrivia(){
 startButton.style.display = "none"
 startText.style.display = "none"
 
+}
+function setClock(){
+var gameClockInterval=setInterval(function(){
+    remainingTime --
+    gameClock.textContent= remainingTime
 
-console.log ("Enter the Gates!");
-setClock()
-qsDisplay();
+    if(remainingTime === 0 && index >= rockTrivia.length){
+        alert("You are unworthy!")
+        clearInterval(gameClockInterval);
+        gameOver()
+    } 
+    }, 1000)
 }
 
-function setClock(){
-var clockInterval=setInterval(function(){
-    remainingTime ,
-    clockInt.qcontent= remainingTime
+    function nextQuestion(){
+        questionNumber++;
+        qsDisplay();
+    }
 
     if(questionNumber>(qs.length -1)){
         clearInterval(clockInterval);
         gameOver();
         return null;
     }
-    if(remainingTime<=0){
-        clearInterval(clockInterval);
-        alert("You are unworthy!")
-        gameOver()
-    } 
-    })
-}
-    function nextQuestion(){
-        questionNumber++;
-        qsDisplay();
-    }
+
+
 
     function qsDisplay(){
         console.log(qss[qsNumber])

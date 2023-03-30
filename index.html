@@ -10,7 +10,9 @@
   </head>
 <body>
   <header>
-<section id="gameClock"></div>
+<section class="game-timer">
+  <h5 id="game-timer"></h5>
+</section>
   </header>
   <style>
     body {
@@ -18,25 +20,37 @@
     }
     </style>
   <main>
-    <section id="init-title">
+    <section id="init-Text">
     <h1>AD's Totally Redonculous Rock and Roll Quiz</h1>
     <p>"Are you prepared to enter the gates of the rock and roll gods? Answer the five questions of bodaciousness to achieve Rock God status. However, be warned, every incorrect answer you give will reduce 10 seconds from the clock, if it hits zero your not rock god material.
     Rock On Challenger!!"
     </p>
+    <button id ="startButton">Enter the Gates!</button>
     </section>
-    <button id ="begin-quiz" class"button">Enter the Gates!</button>
-
-    <section id ="q-housing"></section>
+    <section id ="q-housing">
     <section id ="a-housing">
-        <button class = "a" id = "A1"> Answer 1</button>
-        <button class = "a" id = "A2"> Answer 2</button>
-        <button class = "a" id = "A3"> Answer 3</button>
-        <button class = "a" id = "A4"> Answer 4</button>
+      <h2 class ="question"></h2>
+        <button class = "button" id = "A1"> Answer 1</button>
+        <button class = "button" id = "A2"> Answer 2</button>
+        <button class = "button" id = "A3"> Answer 3</button>
+        <button class = "button" id = "A4"> Answer 4</button>
+        <h4 class = "wrong-right"></h4>
     </section>
-<section id="gamer-init"> 
-    <form>
-        <input type ="text" id ="gamer-tag" gamer-tag="tag">
-        <button type ="submit" id ="save-init">Save your Gamer Tag</button>
+  </section>
+<section id="subject-header">
+  <h1>YOU ARE A ROCK GOD!</h1>
+  <h3 id ="scores"></h3>
+<form>
+<section id="gamerInits"> 
+  <label>Carve Initials</label>
+  <input type="text" name="gamer-init" id="gamer-init"/>
+  <button id ="recordKeeper">Enter</button>
+    <summary id="rockLegends">
+      <h1>Previous Winners</h1>
+      <ul id = "scores"></ul>
+      
+
+    </summary>
     </form>
 </section>
 </main>
