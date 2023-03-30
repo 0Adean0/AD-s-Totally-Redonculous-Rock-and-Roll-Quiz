@@ -1,83 +1,95 @@
-var quizBButton = document.querySelector("#begin-quiz");
-var gameClock = document.querySelector("#game-time");
-var initText = document.querySelector ("#init-text");
-var remainingTime = 120;
-var questionHousing = document.querySelector("#q-housing");
-var answerHousing = document.querySelector("#a-housing");
-var a1 = document.querySelector("#A1");
-var a2 = document.querySelector("#A2");
-var a3 = document.querySelector("#A3");
-var a4 = document.querySelector("#A4");
-var subjectHead = document.querySelector("#subject-header");
-var gamerInit = document.querySelector("#gamer-init");
-var recordKeeping = document.querySelector("#record-keeper");
-var gamerTag = document.querySelector("#tag");
+var startButton = document.querySelector("#begin-quiz")
+var gameClock = document.querySelector("#game-timer")
+var startText = document.querySelector ("#init-Text")
+var remainingTime = 90
+var questionHousing = document.querySelector("#q-housing")
+var answerHousing = document.querySelector("#a-housing")
+var ans1 = document.querySelector("#A1")
+var ans2 = document.querySelector("#A2")
+var ans3 = document.querySelector("#A3")
+var ans4 = document.querySelector("#A4")
+var ansButton = document.querySelector("#answer-button")
+var wrRt = document.querySelector("#wrong-right")
+var subjectHead = document.querySelector("#subject-header")
+var gamerInits = document.querySelector("#gamer-init")
+var recordKeeping = document.querySelector("#record-keeper")
+var rockLegend = document.querySelector("#winner")
+var rockLegends = document.querySelector("#previous-winners")
+var rockLegendsScore= document.querySelector("#scores")
+var finalMs = document.querySelector("#final-message")
+var newQuiz = document.querySelector("#new-game")
 
-var qcount = 0
 
-var qss = [ { 
 
-    qtext: "Question 1: Which rock and roll fontperson had a dove land on their hand during a live performace at Kazar Stadium in San Fransisco, circa 1973? ",
-    options: ["Frank Zappa","Jimmy Hendrix","Robert Plant","Anne Wilson"],
+var rockTrivia= [ { 
+
+    question: "Question 1: Which rock and roll fontperson had a dove land on their hand during a live performace at Kazar Stadium in San Fransisco, circa 1973? ",
+    ans: ["Frank Zappa","Jimmy Hendrix","Robert Plant","Anne Wilson"],
+    wrongAns:["Frank Zappa","Jimmy Hendrix","Anne Wilson"],
     correctAns: "Robert Plant",
 },{
-    qtext: "Question 2: What was the name of Eddie Van Halens homemade electric guitar?",
-    options: ["MR.Roboto","FrankenStrat","Whackjob Willie", "President Nixon"],
-    CorrectAns: "FrankenStrat",
+    question: "Question 2: What was the name of Eddie Van Halens homemade electric guitar?",
+    ans: ["MR.Roboto","FrankenStrat","Whackjob Willie", "President Nixon"],
+    wrongAns:["MR.Roboto","Whackjob Willie","President Nixon"],
+    correctAns: "FrankenStrat",
 },{
-    qtext: "Question 3: Which lead singer, famous for hits like (Were not gonna take it) and (The kids are back) testified before a United States Senate commitee to address censorship in 1985 ",
-    options: ["Nikki Six", "Steven Tyler","Dee Snyder", "Paul Stanley"],
+    question: "Question 3: Which lead singer, famous for hits like (Were not gonna take it) and (The kids are back) testified before a United States Senate commitee to address censorship in 1985 ",
+    ans: ["Nikki Six", "Steven Tyler","Dee Snyder", "Paul Stanley"],
+    wrongAns: ["Nikki Six", "Steven Tyler", "Paul Stanley"],
     correctAns: "Dee Snyder",
 },{
-    qtext: "Question 4: The Band UB40 got thier name from what type of official English form?",
-    options: ["Passport Application", "Import Tax Sheet", "Unemployment", "Mailbox Registry"],
+    question: "Question 4: The Band UB40 got thier name from what type of official English form?",
+    ans: ["Passport Application", "Import Tax Sheet", "Unemployment", "Mailbox Registry"],
+    wrongAns:["Passport Application", "Import Tax Sheet", "Mailbox Registry"],
     correctAns: "Unemployment",
 },{
-    qtext: "Question 5: What job did Oswald (Ozzy) Osborn have before he became known as the prince of darkness",
-    options: ["Master Carpenter","Plumbers Apprentice","Hotdog Cart Vendor", "Carpet Salesman"],
-    correctAns: "Plumbers Apprentice"
-},
-]
+    question: "Question 5: What job did Oswald (Ozzy) Osborn have before he became known as the prince of darkness",
+    ans: ["Master Carpenter","Plumbers Apprentice","Hotdog Cart Vendor", "Carpet Salesman"],
+    wrongAns:["Master Carpenter","Hotdog Cart Vendor", "Carpet Salesman"],
+    correctAns: "Plumbers Apprentice",
+}]
 
-function StartTRRQ(){
-quizBButton.style.display = "none"
-initText.style.display = "none"
-optionsSpacing.style.display ="flex"
-qSpacing.style.display="block"
+function StartTrial(){
+startButton.style.display = "none"
+startText.style.display = "none"
+
+
 console.log ("Enter the Gates!");
 setClock()
 qsDisplay();
 }
 
 function setClock(){
-var clockInt=setInt(function(){
-    remainingTime --,
-    clockInt.qcontent= remainingTime + "remaining time";
+var clockInterval=setInterval(function(){
+    remainingTime ,
+    clockInt.qcontent= remainingTime
 
-    if(qsNumber>(qs.length -1)){
-        clearInt(clockInt);
+    if(questionNumber>(qs.length -1)){
+        clearInterval(clockInterval);
         gameOver();
         return null;
     }
     if(remainingTime<=0){
-        clearInt(clockInt);
+        clearInterval(clockInterval);
         alert("You are unworthy!")
         gameOver()
     } 
     })
 }
     function nextQuestion(){
-        qsNumber++;
+        questionNumber++;
         qsDisplay();
     }
 
     function qsDisplay(){
-    qSpacing.textContent = qss[qsNumber].qtext
+        console.log(qss[qsNumber])
+    questionHousing.textContent = qss[qsNumber].qtext
     a1.textContent = qss[qsNumber].options[0]
     a2.textContent = qss[qsNumber].options[1]
     a3.textContent = qss[qsNumber].options[2]
     a4.textContent = qss[qsNumber].options[3]
     console.log(qsNumber)
+    // document.querySelector("q-housing").append
     }
 
     function gameOver(){
